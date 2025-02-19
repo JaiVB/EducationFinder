@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.finder.AppTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.048 s -- in com.finder.AppTest
+=======
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s -- in com.finder.AppTest
+>>>>>>> 4055f32950eab704456130c3433508776edadd1a
