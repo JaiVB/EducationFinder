@@ -1,1 +1,40 @@
 .env
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Maven #
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# IntelliJ project files
+.idea/
+*.ipr
+*.iws
+*.iml
+/out
+
+# Eclipse project files
+.settings/
+.project
+.classpath
+
+# NetBeans project files
+nbproject/
+
+# System Files #
+.DS_Store
+Thumbs.db
