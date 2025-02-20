@@ -1,15 +1,28 @@
+/*
+Key Words for Searching
+Title
+Background Color
+
+*/
+
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "./components/button"; 
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./components/dropdowns";
+import { Button } from "./components/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./components/dropdowns";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#022834] text-gray-900">
+    // {/* Background Color*/}
+    <div className="min-h-screen bg-[#FFA559] text-gray-900">
       {/* Navbar */}
-      <nav className="flex items-center justify-between px-8 py-4 bg-[#1F7A9C]">
+      <nav className="flex items-center justify-between px-8 py-4 bg-[#FFA559]">
         <Image
-          src="/companyLogo.png" // Replace with your company logo
+          src="/companyLogo.jpg" // Replace with your company logo
           alt="Company Logo"
           width={50}
           height={50}
@@ -17,29 +30,30 @@ export default function Home() {
 
         <ul className="flex gap-8 text-lg font-semibold text-[#FFFFFF]">
           <li className="hover:underline">
+            {/* These are the Pieces for the Navigation Bar */}
             <Link href="/">Home</Link>
           </li>
           <li className="hover:underline">
             <Link href="/mission">Mission</Link>
           </li>
           <li className="hover:underline">
-            <Link href="/testimony">Testimony</Link>
+            <Link href="/testimony">Bacon</Link>
           </li>
           <li className="hover:underline">
             <Link href="/about">About</Link>
           </li>
           <li className="hover:underline">
-            <Link href="/foodFinder">Let's Find Some Food</Link>
+            <Link href="/foodFinder">Find Your School</Link>
           </li>
           <li className="hover:underline">
-            <Link href="/calorieCalculator">Calorie Calculator</Link>
+            <Link href="/calorieCalculator">Top Schools -temp</Link>
           </li>
         </ul>
 
         <div className="flex gap-4 items-center">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button className="bg-[#1F7A9C] text-[#1D1D1D] px-4 py-2 rounded">
+              <Button className="bg-[#5CB8B2] text-[#1D1D1D] px-4 py-2 rounded">
                 Login
               </Button>
             </DropdownMenuTrigger>
@@ -82,36 +96,36 @@ export default function Home() {
           </DropdownMenu>
         </div>
       </nav>
-
       {/* Hero Section */}
-      <header id="home" className="flex flex-col items-center justify-center text-center py-20">
+      <header
+        id="home"
+        className="flex flex-col items-center justify-center text-center py-20"
+      >
         <Image
-          src="/companyLogo.png" // Replace with your company logo
+          src="/companyLogo.jpg" // Replace with your company logo
           alt="Company Logo"
           width={150}
           height={150}
           className="mb-6"
         />
-        <h1 className="text-5xl font-bold mb-4 text-[#1F7A9C]">
-          Equilibrium Academy
-        </h1>
+        {/* Title */}
+        <h1 className="text-6xl font-bold mb-4 text-[#5CB8B2]">EduFinder</h1>
         <p className="text-xl font-medium text-[#FDE8E7]">
-          Adapt into a better self {/* Replace with your slogan */}
+          Find the College For You {/* Replace with your slogan */}
         </p>
       </header>
-
       {/* Call to Action */}
       <main className="flex justify-center mt-10">
-        <Button className="px-8 py-4 text-lg font-semibold" style={{ backgroundColor: "#1F7A9C", color: "#1D1D1D" }}>
+        <Button
+          className="px-8 py-4 text-lg font-semibold"
+          style={{ backgroundColor: "#5CB8B2", color: "#1D1D1D" }}
+        >
           Get Started
         </Button>
       </main>
-
       {/* Footer */}
       <footer className="mt-20 text-center text-sm text-[#FDE8E7]">
-        <p>
-          © {new Date().getFullYear()} Equilibrium Academy. All rights reserved.
-        </p>
+        <p>© {new Date().getFullYear()} EduForYou. All rights reserved.</p>
       </footer>
     </div>
   );
