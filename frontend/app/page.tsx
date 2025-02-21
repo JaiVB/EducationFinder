@@ -22,7 +22,7 @@ export default function Home() {
       {/* Navbar */}
       <nav className="flex items-center justify-between px-8 py-4 bg-[#FFA559]">
         <Image
-          src="/companyLogo.jpg" // Replace with your company logo
+          src="/companyLogo.jpg" // check the extension of the image
           alt="Company Logo"
           width={50}
           height={50}
