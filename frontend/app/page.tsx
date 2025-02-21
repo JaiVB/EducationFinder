@@ -18,7 +18,7 @@ import {
 export default function Home() {
   return (
     // {/* Background Color*/}
-    <div className="min-h-screen bg-[#FFA559] text-gray-900">
+    <div className="min-h-screen bg-[#FFB07C] text-gray-900">
       {/* Navbar */}
       <nav className="flex items-center justify-between px-8 py-4 bg-[#FFA559]">
         <Image
@@ -43,7 +43,7 @@ export default function Home() {
             <Link href="/about">About</Link>
           </li>
           <li className="hover:underline">
-            <Link href="/foodFinder">Find Your School</Link>
+            <Link href="/schoolFinder">Find Your School</Link>
           </li>
           <li className="hover:underline">
             <Link href="/calorieCalculator">Top Schools -temp</Link>
