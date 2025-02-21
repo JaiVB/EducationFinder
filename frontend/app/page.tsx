@@ -36,9 +36,7 @@ export default function Home() {
           <li className="hover:underline">
             <Link href="/mission">Mission</Link>
           </li>
-          <li className="hover:underline">
-            <Link href="/testimony">Bacon</Link>
-          </li>
+
           <li className="hover:underline">
             <Link href="/about">About</Link>
           </li>
@@ -46,7 +44,7 @@ export default function Home() {
             <Link href="/schoolFinder">Find Your School</Link>
           </li>
           <li className="hover:underline">
-            <Link href="/calorieCalculator">Top Schools -temp</Link>
+            <Link href="/calorieCalculator">Top Schools</Link>
           </li>
         </ul>
 

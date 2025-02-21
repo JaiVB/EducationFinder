@@ -24,9 +24,7 @@ export default function Navbar() {
             <li className="hover:underline">
               <Link href="/mission">Mission</Link>
             </li>
-            <li className="hover:underline">
-              <Link href="/testimony">Bacon</Link>
-            </li>
+
             <li className="hover:underline">
               <Link href="/about">About</Link>
             </li>
