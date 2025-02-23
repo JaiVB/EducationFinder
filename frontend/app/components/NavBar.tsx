@@ -6,14 +6,15 @@ export default function Navbar() {
     <nav className="p-4 bg-[#2A6478] text-white">
       <div className="container mx-auto flex items-center relative">
         {/* Logo on the Left */}
-        <div className="absolute left-0">
+        <Link href="/">
           <Image
             src="/companyLogo.jpg"
             alt="Company Logo"
             width={50}
             height={50}
+            className="cursor-pointer"
           />
-        </div>
+        </Link>
 
         {/* Centered Navigation Links */}
         <div className="flex-1 flex justify-center">
@@ -29,11 +30,11 @@ export default function Navbar() {
               <Link href="/about">About</Link>
             </li>
             <li className="hover:underline">
-              <Link href="/foodFinder">Find Your School</Link>
+              <Link href="/schoolFinder">Find Your School</Link>
             </li>
-            <li className="hover:underline">
-              <Link href="/calorieCalculator">Top Schools -temp</Link>
-            </li>
+            {/* <li className="hover:underline">
+              <Link href="/calorieCalculator">Top Schools</Link>
+            </li> */}
           </ul>
         </div>
       </div>

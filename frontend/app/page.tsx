@@ -1,128 +1,53 @@
-/*
-Key Words for Searching
-Title
-Background Color
+"use client";
 
-*/
-
+import Navbar from "./components/NavBar";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./components/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "./components/dropdowns";
 
 export default function Home() {
   return (
-    // {/* Background Color*/}
-    <div className="min-h-screen bg-[#FFB07C] text-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-[#FFB07C] to-[#FDE8E7] text-gray-900">
       {/* Navbar */}
-      <nav className="flex items-center justify-between px-8 py-4 bg-[#FFA559]">
-        <Image
-          src="/companyLogo.jpg" // check the extension of the image
-          alt="Company Logo"
-          width={50}
-          height={50}
-        />
+      <Navbar />
 
-        <ul className="flex gap-8 text-lg font-semibold text-[#FFFFFF]">
-          <li className="hover:underline">
-            {/* These are the Pieces for the Navigation Bar */}
-            <Link href="/">Home</Link>
-          </li>
-          <li className="hover:underline">
-            <Link href="/mission">Mission</Link>
-          </li>
-
-          <li className="hover:underline">
-            <Link href="/about">About</Link>
-          </li>
-          <li className="hover:underline">
-            <Link href="/schoolFinder">Find Your School</Link>
-          </li>
-          <li className="hover:underline">
-            <Link href="/calorieCalculator">Top Schools</Link>
-          </li>
-        </ul>
-
-        <div className="flex gap-4 items-center">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button className="bg-[#5CB8B2] text-[#1D1D1D] px-4 py-2 rounded">
-                Login
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="bg-[#FDE8E7]">
-              <DropdownMenuItem>
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" className="text-[#1D1D1D]">
-                      Client
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="bg-[#FFFFFF]">
-                    <DropdownMenuItem>
-                      <Link href="/clogin">Login</Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem>
-                      <Link href="/csignup">Signup</Link>
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" className="text-[#1D1D1D]">
-                      Trainer
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="bg-[#FFFFFF]">
-                    <DropdownMenuItem>
-                      <Link href="/tlogin">Login</Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem>
-                      <Link href="/tsignup">Signup</Link>
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
-      </nav>
       {/* Hero Section */}
       <header
         id="home"
-        className="flex flex-col items-center justify-center text-center py-20"
+        className="flex flex-col items-center justify-center text-center py-24 px-6"
       >
-        <Image
-          src="/companyLogo.jpg" // Replace with your company logo
-          alt="Company Logo"
-          width={150}
-          height={150}
-          className="mb-6"
-        />
+        {/* Company Logo */}
+        <Link href="/">
+          <Image
+            src="/companyLogo.jpg"
+            alt="Company Logo"
+            width={180}
+            height={180}
+            className="mb-6 drop-shadow-lg cursor-pointer"
+          />
+        </Link>
+
         {/* Title */}
-        <h1 className="text-6xl font-bold mb-4 text-[#5CB8B2]">EduFinder</h1>
-        <p className="text-xl font-medium text-[#FDE8E7]">
-          Find the College For You {/* Replace with your slogan */}
+        <h1 className="text-7xl font-bold mb-6 text-[#5CB8B2] drop-shadow-md">
+          EduFinder
+        </h1>
+        <p className="text-2xl font-medium text-[#5A189A] max-w-2xl leading-relaxed">
+          Find the perfect school for your future. Let us guide you to success.
         </p>
+
+        {/* Call to Action */}
+        <div className="mt-8">
+          <Button
+            className="px-10 py-4 text-xl font-semibold rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl"
+            style={{ backgroundColor: "#5CB8B2", color: "#1D1D1D" }}
+          >
+            Get Started
+          </Button>
+        </div>
       </header>
-      {/* Call to Action */}
-      <main className="flex justify-center mt-10">
-        <Button
-          className="px-8 py-4 text-lg font-semibold"
-          style={{ backgroundColor: "#5CB8B2", color: "#1D1D1D" }}
-        >
-          Get Started
-        </Button>
-      </main>
+
       {/* Footer */}
-      <footer className="mt-20 text-center text-sm text-[#FDE8E7]">
+      <footer className="mt-20 text-center text-sm text-[#5A189A] py-4 bg-[#FDE8E7]">
         <p>© {new Date().getFullYear()} EduForYou. All rights reserved.</p>
       </footer>
     </div>
