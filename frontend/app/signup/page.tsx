@@ -21,55 +21,60 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#2A6478]">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-96">
-        <h2 className="text-3xl font-bold text-center text-[#2A6478] mb-6">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-[#1E3A8A] to-[#9333EA]">
+      <div className="bg-white p-10 rounded-2xl shadow-2xl w-96">
+        <h2 className="text-4xl font-bold text-center text-[#1E3A8A] mb-6">
           Sign Up
         </h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label className="block text-gray-700">Name</label>
+            <label className="block text-gray-800 font-semibold">Name</label>
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full p-2 border rounded-lg"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#9333EA] focus:outline-none"
               required
             />
           </div>
           <div>
-            <label className="block text-gray-700">Email</label>
+            <label className="block text-gray-800 font-semibold">Email</label>
             <input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full p-2 border rounded-lg"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#9333EA] focus:outline-none"
               required
             />
           </div>
           <div>
-            <label className="block text-gray-700">Password</label>
+            <label className="block text-gray-800 font-semibold">
+              Password
+            </label>
             <input
               type="password"
               name="password"
               value={formData.password}
               onChange={handleChange}
-              className="w-full p-2 border rounded-lg"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#9333EA] focus:outline-none"
               required
             />
           </div>
           <button
             type="submit"
-            className="w-full bg-[#5A189A] text-white py-2 rounded-lg hover:bg-[#4A137A]"
+            className="w-full bg-[#9333EA] text-white py-3 rounded-lg hover:bg-[#7B2CBF] shadow-md font-semibold transition duration-300"
           >
             Sign Up
           </button>
         </form>
-        <p className="text-center text-gray-600 mt-4">
+        <p className="text-center text-gray-700 mt-6">
           Already have an account?{" "}
-          <Link href="/login" className="text-[#5A189A] hover:underline">
+          <Link
+            href="/login"
+            className="text-[#9333EA] hover:underline font-semibold"
+          >
             Log in
           </Link>
         </p>

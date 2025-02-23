@@ -1,98 +1,148 @@
-"use client"; // Ensures hooks like useState work in Next.js
+"use client";
 
 import { useState } from "react";
-import Navbar from "../components/NavBar";
+import Select from "react-select";
+import Navbar from "../components/NavBar"; // Ensure this matches the actual filename
+
+const statesOptions = [
+  { value: "AL", label: "Alabama" },
+  { value: "AK", label: "Alaska" },
+  { value: "AZ", label: "Arizona" },
+  { value: "AR", label: "Arkansas" },
+  { value: "CA", label: "California" },
+  { value: "CO", label: "Colorado" },
+  { value: "CT", label: "Connecticut" },
+  { value: "DE", label: "Delaware" },
+  { value: "FL", label: "Florida" },
+  { value: "GA", label: "Georgia" },
+  { value: "HI", label: "Hawaii" },
+  { value: "ID", label: "Idaho" },
+  { value: "IL", label: "Illinois" },
+  { value: "IN", label: "Indiana" },
+  { value: "IA", label: "Iowa" },
+  { value: "KS", label: "Kansas" },
+  { value: "KY", label: "Kentucky" },
+  { value: "LA", label: "Louisiana" },
+  { value: "ME", label: "Maine" },
+  { value: "MD", label: "Maryland" },
+  { value: "MA", label: "Massachusetts" },
+  { value: "MI", label: "Michigan" },
+  { value: "MN", label: "Minnesota" },
+  { value: "MS", label: "Mississippi" },
+  { value: "MO", label: "Missouri" },
+  { value: "MT", label: "Montana" },
+  { value: "NE", label: "Nebraska" },
+  { value: "NV", label: "Nevada" },
+  { value: "NH", label: "New Hampshire" },
+  { value: "NJ", label: "New Jersey" },
+  { value: "NM", label: "New Mexico" },
+  { value: "NY", label: "New York" },
+  { value: "NC", label: "North Carolina" },
+  { value: "ND", label: "North Dakota" },
+  { value: "OH", label: "Ohio" },
+  { value: "OK", label: "Oklahoma" },
+  { value: "OR", label: "Oregon" },
+  { value: "PA", label: "Pennsylvania" },
+  { value: "RI", label: "Rhode Island" },
+  { value: "SC", label: "South Carolina" },
+  { value: "SD", label: "South Dakota" },
+  { value: "TN", label: "Tennessee" },
+  { value: "TX", label: "Texas" },
+  { value: "UT", label: "Utah" },
+  { value: "VT", label: "Vermont" },
+  { value: "VA", label: "Virginia" },
+  { value: "WA", label: "Washington" },
+  { value: "WV", label: "West Virginia" },
+  { value: "WI", label: "Wisconsin" },
+  { value: "WY", label: "Wyoming" },
+];
+
+const schoolTypes = [
+  { value: "public", label: "Public" },
+  { value: "private", label: "Private" },
+  { value: "for-profit", label: "For-Profit" },
+];
 
 export default function SearchForm() {
-  const [distance, setDistance] = useState(50);
+  const [selectedStates, setSelectedStates] = useState([]);
+  const [satScore, setSatScore] = useState(1200);
+  const [studentFacultyRatio, setStudentFacultyRatio] = useState(15);
   const [tuition, setTuition] = useState(30000);
-  const [noLimitDistance, setNoLimitDistance] = useState(false);
-  const [noLimitTuition, setNoLimitTuition] = useState(false);
+  const [selectedSchoolType, setSelectedSchoolType] = useState(null);
 
   return (
-    <div className="min-h-screen bg-[#F4E8C1] text-[#2D2A32] font-mono">
+    <div className="min-h-screen flex flex-col bg-gradient-to-r from-[#1E3A8A] to-[#9333EA] text-white">
+      {/* Navbar stays at the top */}
       <Navbar />
-      <div className="flex items-center justify-center py-12">
-        <form className="p-8 bg-[#FFF5E1] shadow-2xl rounded-xl max-w-md mx-auto border-4 border-[#5A189A]">
-          <h2 className="text-3xl font-bold mb-6 text-center text-[#5A189A]">
+
+      {/* Centering the form */}
+      <div className="flex-grow flex items-center justify-center p-4">
+        <form className="p-6 bg-white shadow-xl rounded-lg max-w-md w-full border-4 border-gray-300 font-sans">
+          <h2 className="text-3xl font-bold mb-4 text-center text-[#9333EA]">
             Find Your School
           </h2>
 
-          {/* Area of Study */}
-          <label className="block text-lg font-semibold text-[#5A189A] mb-2">
-            Area of Study
+          <label className="block text-lg font-semibold text-gray-800 mb-2">
+            Select States
           </label>
-          <select className="w-full p-3 border border-[#5A189A] rounded-lg bg-white text-[#2D2A32]">
-            <option value="">Select an area</option>
-            <option value="computer-science">Computer Science</option>
-            <option value="business">Business</option>
-            <option value="engineering">Engineering</option>
-            <option value="health">Health Sciences</option>
-            <option value="arts">Arts & Humanities</option>
-          </select>
+          <Select
+            options={statesOptions}
+            isMulti
+            className="mb-4 text-black"
+            onChange={(selected) => setSelectedStates(selected)}
+          />
 
-          {/* Distance Slider */}
-          <div className="mt-6">
-            <label className="block text-lg font-semibold text-[#5A189A] mb-2">
-              Distance (miles)
-            </label>
-            <input
-              type="range"
-              min="1"
-              max="500"
-              value={noLimitDistance ? 500 : distance}
-              onChange={(e) => setDistance(Number(e.target.value))}
-              className="w-full accent-[#9C1D64]"
-              disabled={noLimitDistance}
-            />
-            <div className="flex justify-between text-sm text-[#5A189A]">
-              <span>1 mile</span>
-              <span>{noLimitDistance ? "No Limit" : `${distance} miles`}</span>
-            </div>
-            <label className="flex items-center mt-2 text-[#5A189A]">
-              <input
-                type="checkbox"
-                checked={noLimitDistance}
-                onChange={() => setNoLimitDistance(!noLimitDistance)}
-                className="mr-2 accent-[#9C1D64]"
-              />
-              No Limit
-            </label>
-          </div>
+          <label className="block text-lg font-semibold text-gray-800 mb-2">
+            School Type
+          </label>
+          <Select
+            options={schoolTypes}
+            className="mb-4 text-black"
+            onChange={(selected) => setSelectedSchoolType(selected)}
+          />
 
-          {/* Tuition Cost Slider */}
-          <div className="mt-6">
-            <label className="block text-lg font-semibold text-[#5A189A] mb-2">
-              Tuition Cost
-            </label>
-            <input
-              type="range"
-              min="5000"
-              max="100000"
-              value={noLimitTuition ? 100000 : tuition}
-              onChange={(e) => setTuition(Number(e.target.value))}
-              className="w-full accent-[#9C1D64]"
-              disabled={noLimitTuition}
-            />
-            <div className="flex justify-between text-sm text-[#5A189A]">
-              <span>$5K</span>
-              <span>
-                {noLimitTuition ? "No Limit" : `$${tuition.toLocaleString()}`}
-              </span>
-            </div>
-            <label className="flex items-center mt-2 text-[#5A189A]">
-              <input
-                type="checkbox"
-                checked={noLimitTuition}
-                onChange={() => setNoLimitTuition(!noLimitTuition)}
-                className="mr-2 accent-[#9C1D64]"
-              />
-              No Limit
-            </label>
-          </div>
+          <label className="block text-lg font-semibold text-gray-800 mb-2">
+            SAT Score Range
+          </label>
+          <input
+            type="range"
+            min="400"
+            max="1600"
+            value={satScore}
+            onChange={(e) => setSatScore(Number(e.target.value))}
+            className="w-full accent-[#9333EA]"
+          />
+          <p className="text-center text-gray-800">{satScore}</p>
 
-          {/* Submit Button */}
-          <button className="w-full bg-[#9C1D64] text-white py-3 mt-8 rounded-lg hover:bg-[#7E1553] shadow-lg">
+          <label className="block text-lg font-semibold text-gray-800 mt-4 mb-2">
+            Student-Faculty Ratio
+          </label>
+          <input
+            type="range"
+            min="5"
+            max="50"
+            value={studentFacultyRatio}
+            onChange={(e) => setStudentFacultyRatio(Number(e.target.value))}
+            className="w-full accent-[#9333EA]"
+          />
+          <p className="text-center text-gray-800">{studentFacultyRatio}:1</p>
+
+          <label className="block text-lg font-semibold text-gray-800 mt-4 mb-2">
+            Tuition (In-State)
+          </label>
+          <input
+            type="range"
+            min="5000"
+            max="100000"
+            value={tuition}
+            onChange={(e) => setTuition(Number(e.target.value))}
+            className="w-full accent-[#9333EA]"
+          />
+          <p className="text-center text-gray-800">
+            ${tuition.toLocaleString()}
+          </p>
+
+          <button className="w-full bg-[#9333EA] text-white py-2 mt-6 rounded-lg hover:bg-[#7B2CBF] shadow-md font-sans">
             Search Schools
           </button>
         </form>
